@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/loginpage/loginpage",
+    "pages/homepage/homepage",
+    "pages/editpage/editpage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#232524",
+    "navigationBarBackgroundColor": "#ffcd54",
+    "navigationBarTitleText": "TinyPlanet",
+    "navigationBarTextStyle": "#ffffff"
+  },
+  "cloud": true
+}

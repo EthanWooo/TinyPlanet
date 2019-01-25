@@ -1,0 +1,40 @@
+/* pages/welcome/homepage.wxss */
+page {
+  background: #f7f7fa;
+}
+
+.account-border{
+  margin-top: 7%;
+  margin-left: 7%;
+  margin-right: 7%;
+  height: 700rpx;
+  border: 1rpx solid #ffffff;
+  border-radius: 10rpx;
+  background-color:  #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar{
+  overflow:hidden; 
+  margin-top: 200rpx;
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 500rpx;
+  background-color: grey;
+  border: 2px solid #ffffff;  
+  box-shadow: 3px 3px 10px #c0c0c0
+}
+
+.nickname{
+  margin-top: 60rpx;
+  color: #808080;
+  font-size: 14px;
+}
+
+.weui-btn{
+  margin-top: 7%;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+

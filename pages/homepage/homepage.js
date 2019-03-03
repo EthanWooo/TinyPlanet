@@ -1,44 +1,35 @@
 wx.cloud.init()
 const db = wx.cloud.database()
 var dbdata = []
-db.collection('DB_cryptolalia')
-  .limit(15).get({
-    success: function (res) {
-      var flag = false
-      for (let k in res.data) {
-        if (!flag) {
-          res.data[k].selected = true
-          flag = true
-        }
-        dbdata.push(res.data[k])
-      }
-    }
-  })
 Page({
-  /**
-   * 页面的初始数据
-   */
+
   data: {
     messageList: dbdata
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  // onLoad: function (options) {
-  // },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad: function () {
+    var that = this
+    db.collection('DB_cryptolalia')
+      .orderBy('date', 'desc')
+      .get({
+        success: function (res) {
+          dbdata = res.data
+          var newest = dbdata[0]
+          dbdata.splice(0,1)
+          dbdata.sort(function () { return 0.5 - Math.random() })
+          dbdata.unshift(newest)
+          dbdata[0].selected = true
+          dbdata.slice(0,10)
+          that.setData({
+            messageList: dbdata,
+          })
+          dbdata = []
+        }
+      })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
+    this.onLoad()
   },
   
   getSelectItem: function (e) {
@@ -54,42 +45,4 @@ Page({
       messageList: that.data.messageList
     });
   },
-
-  myEdit: function (e) {
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,12 +1,12 @@
 <scroll-view class="scroll-view" scroll-x scroll-with-animation bindscroll="getSelectItem">
-  <block class="detailBox" wx:for="{{messageList}}" wx:key="unique"
+  <block class="detailBox" wx:for="{{messageList}}" wx:key="index"
   wx:for-index="id" wx:for-item="item">
     <view class="scroll_item {{item.selected ? 'selected' : ''}}">
       <view class='textView'>
-        <view class='centertext'>
+        <navigator class='centertext' url="../detailpage/detailpage?text_id={{item._id}}">
           <text class='text-content'>{{item.text}}</text>
           <text class='text-author'>{{item.author}} 说</text>
-        </view>
+        </navigator>
       </view>
     </view>
   </block>

@@ -3,7 +3,8 @@
     "pages/welcome/welcome",
     "pages/loginpage/loginpage",
     "pages/homepage/homepage",
-    "pages/editpage/editpage"
+    "pages/editpage/editpage",
+    "pages/detailpage/detailpage"
   ],
   "window": {
     "backgroundTextStyle": "light",

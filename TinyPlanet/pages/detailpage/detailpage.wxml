@@ -1,0 +1,23 @@
+<view class='page-boundary'>
+  <view class='text-area'>
+    <view class='text-view'>
+        <text class='text-content'>{{text_item.text}}</text>
+        <text class='text-author'>{{text_item.author}} 说</text>
+    </view>
+  </view>
+  <view class='reply-area'>
+    <view class='reply-area-gapline'></view>
+    <block class="reply-item" wx:for="{{reply_list}}" wx:key="index">
+      <view class='reply-view'>
+        <text class='reply-content'>{{item.reply_author}}: {{item.reply_context}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='input-area'>
+  <view class='input-box'>
+    <image src='{{replyicon}}' bindtap='anonym'/>
+    <input class = "input" confirm-type="send" value="{{input_value}}"bindinput="handleReplyInput"/>
+  </view>
+  <image  class='comment-btn' src='{{commenticon}}' bindtap='comment'></image>
+</view>
